@@ -16,4 +16,9 @@ typedef struct TCabeca{
 	implementada por Pedro Warmling Botelho	*/
 TCabeca *criaCabeca();
 
+
+/* Função para inserir no fim da lista.
+   Implementada por Othon Alberto */
+TNo *insereFim(TCabeca *cabeca, char k);
+
 #endif
