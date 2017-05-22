@@ -3,7 +3,8 @@
 #include "biblioteca.h"
 
 TCabeca *criaCabeca(){
-    TCabeca *cabeca = (TCabeca *) malloc(sizeof(TCabeca));
+    // Criando um nó cabeça
+	TCabeca *cabeca = (TCabeca *) malloc(sizeof(TCabeca));
     if (cabeca == NULL)
         return NULL;
 
@@ -13,6 +14,27 @@ TCabeca *criaCabeca(){
     return cabeca;
 }
 
+TNo *insereInicio(TCabeca *cabeca, char k){
+	// caso não houver cabeça criada
+	if(cabeca == NULL)
+		return NULL;
+	
+	// novo nó
+	TNo *novo = malloc(sizeof(TNo));
+    if(novo == NULL)
+		return NULL;
+
+	novo->digito = k;
+	novo->prox = cabeca->prim;
+	cabeca->prim = novo;	
+
+	// caso a lista seja vazia, o cabeca->prim e cabeca->ult receberão o novo nó.
+	if(cabeca->ult == NULL)
+		cabeca->ult = novo;
+	// caso contrário, o cabeca->ult continua tendo o mesmo nó.
+
+	return novo;
+}
 
 TNo *insereFim(TCabeca *cabeca, char digito){
 	if(cabeca == NULL) //se não houver cabeça criada
