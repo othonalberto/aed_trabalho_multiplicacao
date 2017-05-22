@@ -12,4 +12,8 @@ typedef struct TCabeca{
 } TCabeca;
 
 
+/*	Função para criar a cabeça da lista.
+	implementada por Pedro Warmling Botelho	*/
+TCabeca *criaCabeca();
+
 #endif
