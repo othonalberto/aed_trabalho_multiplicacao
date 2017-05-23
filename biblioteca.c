@@ -71,3 +71,31 @@ void deletaLista(TCabeca *cabeca){
     cabeca->prim = NULL;
     cabeca->ult = NULL;
 }
+
+TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2){
+    unsigned int n1 = 0, n2 = 0;
+    TNo *aux = c1->prim;
+    
+    if(c1->prim == NULL && c2->prim == NULL)
+        return NULL;
+
+    while(aux != NULL){
+        n1++;
+        aux = aux->prox;
+    }
+
+    aux = c2->prim;
+
+    while(aux != NULL){
+        n2++;
+        if(n2 > n1)
+            return c2; //quando já ultrapassou o valor de n1 não tem necessidade de continuar contando
+        aux = aux->prox;
+    }
+
+
+    if(n1 > n2)
+        return c1;
+
+    return c2;
+}
