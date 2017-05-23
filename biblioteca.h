@@ -24,4 +24,8 @@ TNo *insereInicio(TCabeca *cabeca, char k);
    Implementada por Othon Alberto */
 TNo *insereFim(TCabeca *cabeca, char k);
 
+/* Função para deletar toda a lista (liberar todos os nós)
+   Implementada por Othon Alberto */
+void deletaLista(TCabeca *cabeca);
+
 #endif

@@ -21,7 +21,7 @@ TNo *insereInicio(TCabeca *cabeca, char k){
 	
 	// novo nó
 	TNo *novo = malloc(sizeof(TNo));
-    if(novo == NULL)
+    	if(novo == NULL)
 		return NULL;
 
 	novo->digito = k;
@@ -53,4 +53,21 @@ TNo *insereFim(TCabeca *cabeca, char digito){
 	cabeca->ult = novo; //ponteiro para o último é atualizado para o novo último
 
 	return novo;
+}
+
+void deletaLista(TCabeca *cabeca){
+    if(cabeca == NULL)
+        return;
+   
+    TNo *ant = cabeca->prim;
+    TNo *atual = cabeca->prim;
+
+    while(atual != NULL){
+        atual = ant->prox;
+        free(ant);
+        ant = atual;
+    }
+    
+    cabeca->prim = NULL;
+    cabeca->ult = NULL;
 }
