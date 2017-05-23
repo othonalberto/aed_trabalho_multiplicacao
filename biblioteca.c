@@ -96,6 +96,4 @@ TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2){
 
     if(n1 > n2)
         return c1;
-
-    return c2;
 }
