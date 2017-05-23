@@ -93,7 +93,5 @@ TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2){
         aux = aux->prox;
     }
 
-
-    if(n1 > n2)
-        return c1;
+    return c1; //se n2 não ultrapassou n1 ou o n1 é maior ou são iguais. Sendo assim, retorna a cabeca da lista 1(c1). 
 }
