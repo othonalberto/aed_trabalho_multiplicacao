@@ -81,7 +81,39 @@ TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2){
     	aux2 = aux2->prox;
     	if(aux2 == NULL) // se o aux2 já acabou, o c1 é a maior lista
         	return c1;
-		}
+	}
 
 	return c2; // se o aux já acabou, o c2 é a maior lista
+}
+
+void leArquivo(){
+    FILE *arquivo;
+    TCabeca *lista1 = criaCabeca();
+    TCabeca *lista2 = criaCabeca();
+    char aux = '0';
+
+    arquivo = fopen("parametros", "r");
+    if(arquivo == NULL){
+        printf("Arquivo 'parametros' não encontrado.");
+        fclose(arquivo);
+        return;
+    }
+
+    //arquivo parametros existe
+    do{
+        char digito = fgetc(arquivo);
+
+        if(aux == '0'){ //lista 1    
+            if(digito == ' ') //ao encontrar o caracter espaço, passa para a outra lista
+                aux = '1';
+            else
+               insereInicio(lista1, digito);
+        }else{ //aux = 1, ou seja, lista2
+            if(digito == '\n'){
+                //Acabou a linha. Tem que passar as linhas para as outras funções
+            }else{
+                insereInicio(lista2, digito);
+            }
+       }
+    }while(!feof(arquivo));
 }

@@ -17,19 +17,23 @@ typedef struct TCabeca{
 TCabeca *criaCabeca();
 
 /*	Função para inserer no inicio da lista.
-	Implementada por Pedro Warmling Botelho	*/
+    Implementada por Pedro Warmling Botelho	*/
 TNo *insereInicio(TCabeca *cabeca, char k);
 
-/* Função para inserir no fim da lista.
-   Implementada por Othon Alberto */
+/*  Função para inserir no fim da lista.
+    Implementada por Othon Alberto */
 TNo *insereFim(TCabeca *cabeca, char k);
 
-/* Procedimento para deletar toda a lista (liberar todos os nós)
-   Implementado por Othon Alberto */
+/*  Procedimento para deletar toda a lista (liberar todos os nós)
+    Implementado por Othon Alberto */
 void deletaLista(TCabeca *cabeca);
 
-/* Função que retorna a cabeca para a maior lista entre as duas comparadas
-   Implementada por Othon Alberto e Pedro Warmling Botelho */
+/*  Função que retorna a cabeca para a maior lista entre as duas comparadas
+    Implementada por Othon Alberto e Pedro Warmling Botelho */
 TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2);
+
+/*  Função que abre o arquivo, lê os números e salva-os em listas
+    Implementada por Othon Alberto */   
+void leArquivo();
 
 #endif
