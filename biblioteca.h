@@ -28,4 +28,8 @@ TNo *insereFim(TCabeca *cabeca, char k);
    Implementada por Othon Alberto */
 void deletaLista(TCabeca *cabeca);
 
+/* Função que retorna a cabeca para a maior lista entre as duas comparadas
+   Implementada por Othon Alberto e Pedro Warmling Botelho */
+TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2);
+
 #endif
