@@ -71,3 +71,17 @@ void deletaLista(TCabeca *cabeca){
     cabeca->prim = NULL;
     cabeca->ult = NULL;
 }
+
+TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2){
+	TNo *aux = c1->prim;
+	TNo *aux2 = c2->prim;
+
+	while(aux != NULL){
+    	aux = aux->prox;
+    	aux2 = aux2->prox;
+    	if(aux2 == NULL) // se o aux2 já acabou, o c1 é a maior lista
+        	return c1;
+		}
+
+	return c2; // se o aux já acabou, o c2 é a maior lista
+}
