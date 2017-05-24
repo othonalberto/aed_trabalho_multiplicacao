@@ -24,11 +24,11 @@ TNo *insereInicio(TCabeca *cabeca, char k);
    Implementada por Othon Alberto */
 TNo *insereFim(TCabeca *cabeca, char k);
 
-/* Função para deletar toda a lista (liberar todos os nós)
-   Implementada por Othon Alberto */
+/* Procedimento para deletar toda a lista (liberar todos os nós)
+   Implementado por Othon Alberto */
 void deletaLista(TCabeca *cabeca);
 
-/* Função que retorna a cabeca para a maior lista entre as duas comparadas
+/* Função que retorna a cabeca para a maior lista entre as duas comparadass
    Implementada por Othon Alberto e Pedro Warmling Botelho */
 TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2);
 
