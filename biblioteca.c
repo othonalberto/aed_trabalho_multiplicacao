@@ -87,30 +87,38 @@ TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2){
 }
 
 void leArquivo(){
+    /*
+    * A ideia é ler os números (dígitos) e ir salvando-os até encontrar o espaço. Ao encontrá-lo, passamos a salvar os outros números na
+    * segunda lista.
+    * Quando o segundo conjuntos de dígitos tiver acabado (ou seja, encontrado o '\n') passamos as duas listas para outras
+    * funções que farão o trabalho de multiplacar e gravar em outro arquivo a resposta.
+    * Após isso, começa tudo novamente até acabar o arquivo 'parametros'
+    */
+
     FILE *arquivo;
     TCabeca *lista1 = criaCabeca();
     TCabeca *lista2 = criaCabeca();
-    char aux = '0';
+    char aux = '1';
 
     arquivo = fopen("parametros", "r");
     if(arquivo == NULL){
-        printf("Arquivo 'parametros' não encontrado.");
+        printf("Arquivo 'parametros' não encontrado.\n");
         fclose(arquivo);
         return;
     }
-
+    
     //arquivo parametros existe
     do{
         char digito = fgetc(arquivo);
-
-        if(aux == '0'){ //lista 1    
+        
+        if(aux == '1'){ //lista 1    
             if(digito == ' ') //ao encontrar o caracter espaço, passa para a outra lista
-                aux = '1';
+                aux = '2';
             else
                insereInicio(lista1, digito);
-        }else{ //aux = 1, ou seja, lista2
+        }else{ //aux = 2, ou seja, lista2
             if(digito == '\n'){
-                //Acabou a linha. Tem que passar as linhas para as outras funções
+                //Acabou a linha. Tem que passar as listas para as outras funções
             }else{
                 insereInicio(lista2, digito);
             }
