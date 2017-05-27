@@ -100,14 +100,18 @@ void leArquivo(){
     TCabeca *lista2 = criaCabeca();
     char aux = '1';
 
-    arquivo = fopen("parametros", "r");
+    arquivo = fopen("parametros", "r+");
     if(arquivo == NULL){
         printf("Arquivo 'parametros' não encontrado.\n");
         fclose(arquivo);
         return;
     }
+   
+    //as próximas três linhas são para garantir um '\n' no final do arquivo
+    fseek(arquivo, 0, SEEK_END); //vai até o final do arquivo
+    fprintf(arquivo, "\n"); //escreve um '\n'
+    fseek(arquivo, 0, SEEK_SET); //volta ao início do arquivo
     
-    //arquivo parametros existe
     do{
         char digito = fgetc(arquivo);
         
@@ -124,4 +128,6 @@ void leArquivo(){
             }
        }
     }while(!feof(arquivo));
+
+    fclose(arquivo);
 }
