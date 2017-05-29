@@ -81,7 +81,38 @@ TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2){
     	aux2 = aux2->prox;
     	if(aux2 == NULL) // se o aux2 já acabou, o c1 é a maior lista
         	return c1;
-		}
+	}
 
 	return c2; // se o aux já acabou, o c2 é a maior lista
 }
+
+TCabeca *somaListas(TCabeca *lista1, TCabeca *lista2){
+    TCabeca *aux1 = lista1;
+    TCabeca *aux2 = lista2;
+
+    TCabeca *resultado = criaCabeca();
+    unsigned short int vai = 0;
+    unsigned short int n = 0;
+
+    while(aux1->prim != NULL || aux2->prim != NULL){
+
+        if(aux1->prim == NULL)
+          insereInicio(aux1, '0');
+        
+        if(aux2->prim  == NULL)
+          insereInicio(aux2, '0');
+        
+        n = (((aux1->prim->digito)-48) + ((aux2->prim->digito)-48) + vai) % 10;
+        vai = (((aux1->prim->digito)-48) + ((aux2->prim->digito)-48) + vai) / 10;
+        insereFim(resultado, n+48);
+      
+        aux1->prim = (aux1->prim)->prox;
+        aux2->prim = (aux2->prim)->prox;
+   }
+    
+   if(vai > 0)
+       insereFim(resultado, vai+48);
+
+    return resultado;
+}
+

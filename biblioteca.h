@@ -32,4 +32,8 @@ void deletaLista(TCabeca *cabeca);
    Implementada por Othon Alberto e Pedro Warmling Botelho */
 TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2);
 
+/*  Função que soma duas listas e retorna a cabeca para o resultado da soma
+    Implementada por Othon Alberto */
+TCabeca *somaListas(TCabeca *lista1, TCabeca *lista2);
+
 #endif
