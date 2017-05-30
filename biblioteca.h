@@ -36,4 +36,8 @@ TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2);
     Implementada por Othon Alberto */   
 void leArquivo();
 
+/*  Função que soma duas listas e retorna a cabeca para o resultado da soma
+    Implementada por Othon Alberto */
+TCabeca *somaListas(TCabeca *lista1, TCabeca *lista2);
+
 #endif

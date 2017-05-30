@@ -18,15 +18,15 @@ TNo *insereInicio(TCabeca *cabeca, char k){
 	// caso não houver cabeça criada
 	if(cabeca == NULL)
 		return NULL;
-	
-	// novo nó
+
+    // novo nó
 	TNo *novo = malloc(sizeof(TNo));
     	if(novo == NULL)
 		return NULL;
 
 	novo->digito = k;
 	novo->prox = cabeca->prim;
-	cabeca->prim = novo;	
+	cabeca->prim = novo;
 
 	// caso a lista seja vazia, o cabeca->prim e cabeca->ult receberão o novo nó.
 	if(cabeca->ult == NULL)
@@ -58,7 +58,7 @@ TNo *insereFim(TCabeca *cabeca, char digito){
 void deletaLista(TCabeca *cabeca){
     if(cabeca == NULL)
         return;
-   
+
     TNo *ant = cabeca->prim;
     TNo *atual = cabeca->prim;
 
@@ -67,7 +67,7 @@ void deletaLista(TCabeca *cabeca){
         free(ant);
         ant = atual;
     }
-    
+
     cabeca->prim = NULL;
     cabeca->ult = NULL;
 }
@@ -130,4 +130,33 @@ void leArquivo(){
     }while(!feof(arquivo));
 
     fclose(arquivo);
+}
+
+TCabeca *somaListas(TCabeca *lista1, TCabeca *lista2){
+    TCabeca *aux1 = lista1;
+    TCabeca *aux2 = lista2;
+
+    TCabeca *resultado = criaCabeca();
+    unsigned short int vai = 0;
+    unsigned short int n = 0;
+
+    while(aux1->prim != NULL || aux2->prim != NULL){
+        if(aux1->prim == NULL)
+            insereInicio(aux1, '0');
+
+        if(aux2->prim  == NULL)
+            insereInicio(aux2, '0');
+ 
+        n = (((aux1->prim->digito)-48) + ((aux2->prim->digito)-48) + vai) % 10;
+        vai = (((aux1->prim->digito)-48) + ((aux2->prim->digito)-48) + vai) / 10;
+        insereFim(resultado, n+48);
+
+        aux1->prim = (aux1->prim)->prox;
+        aux2->prim = (aux2->prim)->prox;
+    }
+
+    if(vai > 0)
+        insereFim(resultado, vai+48);
+
+    return resultado;
 }
