@@ -16,7 +16,7 @@ TCabeca *criaCabeca(){
 
 TNo *insereInicio(TCabeca *cabeca, char k){
     // caso não houver cabeça criada
-	if(cabeca == NULL)
+    if(cabeca == NULL)
 		return NULL;
 
     // novo nó

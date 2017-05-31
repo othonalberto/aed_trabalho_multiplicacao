@@ -32,7 +32,7 @@ void deletaLista(TCabeca *cabeca);
     Implementada por Othon Alberto e Pedro Warmling Botelho */
 TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2);
 
-/*  Proceidimento que abre o arquivo, lê os números e salva-os em listas
+/*  Procedimento que abre o arquivo, lê os números e salva-os em listas
     Implementado por Othon Alberto */   
 void leArquivo();
 
