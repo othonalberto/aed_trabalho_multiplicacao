@@ -4,7 +4,7 @@
 
 TCabeca *criaCabeca(){
     // Criando um nó cabeça
-	TCabeca *cabeca = (TCabeca *) malloc(sizeof(TCabeca));
+    TCabeca *cabeca = (TCabeca *) malloc(sizeof(TCabeca));
     if (cabeca == NULL)
         return NULL;
 
@@ -15,8 +15,8 @@ TCabeca *criaCabeca(){
 }
 
 TNo *insereInicio(TCabeca *cabeca, char k){
-	// caso não houver cabeça criada
-	if(cabeca == NULL)
+    // caso não houver cabeça criada
+    if(cabeca == NULL)
 		return NULL;
 
     // novo nó
@@ -165,5 +165,28 @@ TCabeca *somaListas(TCabeca *lista1, TCabeca *lista2){
         insereFim(resultado, vai+48);
 
     return resultado;
+}
+
+void escreveArquivo(TNo *lista){
+    if(lista == NULL)
+        return;
+
+    FILE *arquivo = fopen("resultados", "a+");
+    if(arquivo == NULL){
+        printf("Não foi possível acessar o arquivo 'resultados'\n");
+        return;
+    }
+
+    printaListaRecursivo(lista, &arquivo);
+    fprintf(arquivo, "\n");
+    fclose(arquivo);
+}
+
+void printaListaRecursivo(TNo *lista, FILE **arquivo){
+    if(lista == NULL)
+        return;
+
+    printaListaRecursivo(lista->prox, arquivo);
+    fprintf(*arquivo, "%c ", lista->digito);
 }
 
