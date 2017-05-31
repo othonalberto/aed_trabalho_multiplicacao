@@ -32,12 +32,20 @@ void deletaLista(TCabeca *cabeca);
     Implementada por Othon Alberto e Pedro Warmling Botelho */
 TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2);
 
-/*  Função que abre o arquivo, lê os números e salva-os em listas
-    Implementada por Othon Alberto */   
+/*  Proceidimento que abre o arquivo, lê os números e salva-os em listas
+    Implementado por Othon Alberto */   
 void leArquivo();
 
 /*  Função que soma duas listas e retorna a cabeca para o resultado da soma
     Implementada por Othon Alberto */
 TCabeca *somaListas(TCabeca *lista1, TCabeca *lista2);
+
+/*  Procedimento que abre o arquivo 'resultados', chama a função que printa a lista, printa um "\n" e fecha o arquivo.
+    Implementado por Othon Alberto */
+void escreveArquivo(TNo *lista);
+
+/*  Procedimento que printa a lista do último elemento ao primeiro, usando recursividade
+    Implementado por Othon Alberto */
+void printaListaRecursivo(TNo *lista, FILE **arquivo);
 
 #endif
