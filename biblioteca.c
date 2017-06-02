@@ -206,3 +206,15 @@ void removeZeroEsquerda(TCabeca *lista){
         free(aux);
     }
 }
+
+TCabeca *multiplicaListas(TCabeca *lista1, TCabeca *lista2){
+    if(lista1->prim == NULL || lista2->prim == NULL)
+        return;
+    
+    /* 
+     * A ideia é "travar" no primeiro digito da lista menor e multiplica-lo por todos os digitos da lista maior
+     * Assim, se tem uma nova lista representando o numero calculado.
+     * Depois, passa-se para o próximo elemento e repete tudo. Faz isso sucessivas vezes até o fim da lista menor
+     * De duas em duas "passagens" soma-se as listas.
+     */
+}

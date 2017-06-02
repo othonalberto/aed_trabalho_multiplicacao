@@ -52,4 +52,8 @@ void printaListaRecursivo(TNo *lista, FILE **arquivo);
     Implementado por Othon Alberto */
 void removeZeroEsquerda(TCabeca *lista);
 
+/* Função que multiplica duas listas e retorna a cabeca para a lista resultante
+   Implementada por Othon Alberto e Pedro Warmling Botelho */
+TCabeca *multiplicaListas(TCabeca *lista1, TCabeca *lista2);
+
 #endif
