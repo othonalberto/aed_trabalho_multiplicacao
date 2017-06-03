@@ -48,4 +48,8 @@ void escreveArquivo(TNo *lista);
     Implementado por Othon Alberto */
 void printaListaRecursivo(TNo *lista, FILE **arquivo);
 
+/*  Procedimento que remove os zeros à esquerda do número gerado na multiplicação
+    Implementado por Othon Alberto */
+void removeZeroEsquerda(TCabeca *lista);
+
 #endif

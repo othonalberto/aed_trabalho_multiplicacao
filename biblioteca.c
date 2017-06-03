@@ -129,6 +129,10 @@ void leArquivo(){
                  * deletaLista(lista1)
                  * deletaLista(lista2);
                 */
+                TCabeca *resultado = somaListas(lista1, lista2);
+                escreveArquivo(resultado->prim);
+                deletaLista(lista1);
+                deletaLista(lista2);
             }else{
                 insereInicio(lista2, digito);
             }
@@ -187,6 +191,18 @@ void printaListaRecursivo(TNo *lista, FILE **arquivo){
         return;
 
     printaListaRecursivo(lista->prox, arquivo);
-    fprintf(*arquivo, "%c ", lista->digito);
+    fprintf(*arquivo, "%c", lista->digito);
 }
 
+void removeZeroEsquerda(TCabeca *lista){
+    if(lista->prim == NULL)
+        return;
+
+    TNo *aux = NULL;
+
+    while(lista->prim->digito == '0'){
+        aux = lista->prim;
+        lista->prim = (lista->prim)->prox;
+        free(aux);
+    }
+}
