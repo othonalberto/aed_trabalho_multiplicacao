@@ -129,10 +129,6 @@ void leArquivo(){
                  * deletaLista(lista1)
                  * deletaLista(lista2);
                 */
-                TCabeca *resultado = somaListas(lista1, lista2);
-                escreveArquivo(resultado->prim);
-                deletaLista(lista1);
-                deletaLista(lista2);
             }else{
                 insereInicio(lista2, digito);
             }
@@ -200,9 +196,10 @@ void removeZeroEsquerda(TCabeca *lista){
 
     TNo *aux = NULL;
 
-    while(lista->prim->digito == '0'){
+    while(lista->prim->digito == '0' && lista->prim != lista->ult){
         aux = lista->prim;
         lista->prim = (lista->prim)->prox;
         free(aux);
     }
 }
+
