@@ -49,7 +49,7 @@ void escreveArquivo(TNo *lista);
 void printaListaRecursivo(TNo *lista, FILE **arquivo);
 
 /*  Procedimento que remove os zeros à esquerda do número gerado na multiplicação
-    Implementado por Othon Alberto */
+    Implementado por Othon Alberto e Pedro Botelho */
 void removeZeroEsquerda(TCabeca *lista);
 
 /* Função que multiplica duas listas e retorna a cabeca para a lista resultante

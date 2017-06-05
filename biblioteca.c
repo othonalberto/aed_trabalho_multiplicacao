@@ -125,6 +125,7 @@ void leArquivo(){
                 //Acabou a linha no arquivo. Agora, tem que passar essas listas para outras funções para multiplicar e
                 //salvar no arquivo
                 aux = '1';
+
                 TCabeca *r = multiplicaListas(lista1->prim, lista2->prim);
                 escreveArquivo(r->prim);
                 deletaLista(lista1);
@@ -247,4 +248,3 @@ TCabeca *multiplicaListas(TNo *lista1, TNo *lista2){
 
     return temp;
 }
-
