@@ -72,9 +72,9 @@ void deletaLista(TCabeca *cabeca){
     cabeca->ult = NULL;
 }
 
-TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2){
-    TNo *aux = c1->prim;
-    TNo *aux2 = c2->prim;
+TNo *retornaMaiorLista(TNo *c1, TNo *c2){
+    TNo *aux = c1;
+    TNo *aux2 = c2;
 
     while(aux != NULL){
         aux = aux->prox;
@@ -125,10 +125,11 @@ void leArquivo(){
                 //Acabou a linha no arquivo. Agora, tem que passar essas listas para outras funções para multiplicar e
                 //salvar no arquivo
                 aux = '1';
-                /* Na verdade, essas duas linhas estarão na função multiplicaListas
-                 * deletaLista(lista1)
-                 * deletaLista(lista2);
-                */
+
+                TCabeca *r = multiplicaListas(lista1->prim, lista2->prim);
+                escreveArquivo(r->prim);
+                deletaLista(lista1);
+                deletaLista(lista2);
             }else{
                 insereInicio(lista2, digito);
             }
@@ -203,3 +204,47 @@ void removeZeroEsquerda(TCabeca *lista){
     }
 }
 
+TCabeca *multiplicaListas(TNo *lista1, TNo *lista2){
+    if(lista1 == NULL || lista2 == NULL)
+        return NULL;
+     
+    int i = 0, k = 0,  n = 0, vai = 0; 
+    TNo *menor = NULL;
+    TCabeca *resultado = criaCabeca();
+    TCabeca *temp = criaCabeca();
+    TNo *maior = retornaMaiorLista(lista1, lista2);
+    TNo *guardaMaior = retornaMaiorLista(lista1, lista2); 
+    
+    if(maior == lista1)
+        menor = lista2;
+    else
+        menor = lista1;
+    
+    while(menor != NULL){
+        for(i=0; i<k; i++)
+            insereFim(resultado, '0');
+
+        while(maior != NULL){
+            n = ( ((maior->digito)-48) * ((menor->digito)-48) + vai ) % 10;
+            vai = ( ((maior->digito)-48) * ((menor->digito)-48) + vai ) / 10;
+            insereFim(resultado, n+48);
+            maior = maior->prox;
+        }
+   
+        TNo *aux = resultado->prim;
+        menor = menor->prox; 
+        maior = guardaMaior; 
+        
+        if(vai > 0)
+            insereFim(resultado, vai+48);
+
+        temp = somaListas(temp, resultado);
+        deletaLista(resultado);
+    
+        vai = 0;
+        n = 0;
+        k++;
+    }
+
+    return temp;
+}

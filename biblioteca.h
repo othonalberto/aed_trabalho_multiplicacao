@@ -30,7 +30,7 @@ void deletaLista(TCabeca *cabeca);
 
 /*  Função que retorna a cabeca para a maior lista entre as duas comparadas
     Implementada por Othon Alberto e Pedro Warmling Botelho */
-TCabeca *retornaMaiorLista(TCabeca *c1, TCabeca *c2);
+TNo *retornaMaiorLista(TNo *c1, TNo *c2);
 
 /*  Procedimento que abre o arquivo, lê os números e salva-os em listas
     Implementado por Othon Alberto */   
@@ -51,5 +51,9 @@ void printaListaRecursivo(TNo *lista, FILE **arquivo);
 /*  Procedimento que remove os zeros à esquerda do número gerado na multiplicação
     Implementado por Othon Alberto e Pedro Botelho */
 void removeZeroEsquerda(TCabeca *lista);
+
+/* Função que multiplica duas listas e retorna a cabeca para a lista resultante
+   Implementada por Othon Alberto e Pedro Warmling Botelho */
+TCabeca *multiplicaListas(TNo *lista1, TNo *lista2);
 
 #endif
