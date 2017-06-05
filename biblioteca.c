@@ -196,7 +196,7 @@ void removeZeroEsquerda(TCabeca *lista){
 
     TNo *aux = NULL;
 
-    while(lista->prim->digito == '0' && lista->prim->prox != NULL){
+    while(lista->prim->digito == '0' && lista->prim != lista->ult){
         aux = lista->prim;
         lista->prim = (lista->prim)->prox;
         free(aux);
