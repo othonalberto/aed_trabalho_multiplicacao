@@ -246,5 +246,7 @@ TCabeca *multiplicaListas(TNo *lista1, TNo *lista2){
         k++;
     }
 
+    removeZeroEsquerda(temp);
+
     return temp;
 }
