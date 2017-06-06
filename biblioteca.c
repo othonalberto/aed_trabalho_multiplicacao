@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include "biblioteca.h"
 
 TCabeca *criaCabeca(){
@@ -191,17 +192,20 @@ void printaListaRecursivo(TNo *lista, FILE **arquivo){
     fprintf(*arquivo, "%c", lista->digito);
 }
 
-void removeZeroEsquerda(TCabeca *lista){
-    if(lista->prim == NULL)
+void removeZero(TNo **lista, char *terminou){
+    assert(lista);
+
+    if(*lista == NULL)
         return;
 
-    TNo *aux = NULL;
+    removeZero(&((*lista)->prox), terminou);
 
-    while(lista->prim->digito == '0' && lista->prim != lista->ult){
-        aux = lista->prim;
-        lista->prim = (lista->prim)->prox;
-        free(aux);
-    }
+    if((*lista)->digito == '0' && !(*terminou)){
+        free(*lista);
+        *lista = NULL;
+    } else{
+        *terminou = 1;
+   }
 }
 
 TCabeca *multiplicaListas(TNo *lista1, TNo *lista2){
@@ -214,7 +218,8 @@ TCabeca *multiplicaListas(TNo *lista1, TNo *lista2){
     TCabeca *temp = criaCabeca();
     TNo *maior = retornaMaiorLista(lista1, lista2);
     TNo *guardaMaior = retornaMaiorLista(lista1, lista2); 
-    
+    char terminou = 0;
+
     if(maior == lista1)
         menor = lista2;
     else
@@ -246,7 +251,12 @@ TCabeca *multiplicaListas(TNo *lista1, TNo *lista2){
         k++;
     }
 
-    removeZeroEsquerda(temp);
-
+    removeZero(&(temp->prim), &terminou);
+    
+    if(temp->prim == NULL)
+        insereInicio(temp, '0');
+    
     return temp;
 }
+
+
