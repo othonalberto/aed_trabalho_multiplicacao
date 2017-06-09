@@ -108,9 +108,14 @@ void leArquivo(){
         return;
     }
 
-    //as próximas três linhas são para garantir um '\n' no final do arquivo
-    fseek(arquivo, 0, SEEK_END); //vai até o final do arquivo
-    fprintf(arquivo, "\n"); //escreve um '\n'
+    //as próximas linhas são para garantir um '\n' no final do arquivo
+    fseek(arquivo, -2, SEEK_END); //vai até o último caracter "digitado"
+    
+    if(getc(arquivo) != '\n'){//se nao for um '\n'
+        fseek(arquivo, 0, SEEK_END);
+        fprintf(arquivo, "\n"); //escreve um '\n'
+    }
+    
     fseek(arquivo, 0, SEEK_SET); //volta ao início do arquivo
 
     do{
@@ -258,5 +263,4 @@ TCabeca *multiplicaListas(TNo *lista1, TNo *lista2){
     
     return temp;
 }
-
 
