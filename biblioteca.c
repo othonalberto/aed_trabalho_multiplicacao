@@ -128,10 +128,8 @@ void leArquivo(){
                insereInicio(lista1, digito);
         }else{ //aux = 2, ou seja, lista2
             if(digito == '\n'){
-                //Acabou a linha no arquivo. Agora, tem que passar essas listas para outras funções para multiplicar e
-                //salvar no arquivo
+                //Acabou a linha no arquivo.
                 aux = '1';
-
                 TCabeca *r = multiplicaListas(lista1->prim, lista2->prim);
                 escreveArquivo(r->prim);
                 deletaLista(lista1);
@@ -241,7 +239,6 @@ TCabeca *multiplicaListas(TNo *lista1, TNo *lista2){
             maior = maior->prox;
         }
    
-        TNo *aux = resultado->prim;
         menor = menor->prox; 
         maior = guardaMaior; 
         
